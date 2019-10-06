@@ -9,15 +9,22 @@ type node struct {
 	b float64
 }
 
+type layer struct {
+	nodes []node
+}
+
 func main() {
-	fmt.Println("Hello World!")
+	node1 := node{m:2,b:0}
+	node2 := node{m:3,b:0}
+	node3 := node{m:6,b:0}
 
-	var x float64 = 1.5
-	var node1 = node{m:2,b:0}
-	var y float64
+	nodes := make([]node, 0)
+	nodes = append(nodes,node1)
+	nodes = append(nodes,node2)
+	nodes = append(nodes,node3)
 	
-	y = node1.m*x + node1.b
+	layer1 := layer{nodes:nodes}
 
-	fmt.Println(y)
+	fmt.Println(layer1.nodes)
 
 }
