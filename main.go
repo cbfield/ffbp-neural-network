@@ -1,30 +1,37 @@
 package main
 
 import (
-	"fmt"
+	"fmt";
+	"math/rand";
 )
 
 type node struct {
-	m float64
-	b float64
+	weights []float64
 }
 
-type layer struct {
-	nodes []node
+func (n node) evaluate(inputs []float64) {
+	for _,weight := range n.weights{
+		fmt.Println(weight)
+	}
+}
+
+func gimmeSomeInputs(length int) []float64{
+	thing := make([]float64,length)
+	for i := range thing{
+		r := rand.Float64()
+		thing[i] = r
+	}
+	return thing
 }
 
 func main() {
-	node1 := node{m:2,b:0}
-	node2 := node{m:3,b:0}
-	node3 := node{m:6,b:0}
+	inputLayerSize := 8
+	// hiddenLayerSize := 8
+	// outputLayerSize := 2
+	// n := node{[]float64{1.4,2.4,7.5}}
 
-	nodes := make([]node, 0)
-	nodes = append(nodes,node1)
-	nodes = append(nodes,node2)
-	nodes = append(nodes,node3)
-	
-	layer1 := layer{nodes:nodes}
 
-	fmt.Println(layer1.nodes)
+	inputLayer := gimmeSomeInputs(inputLayerSize)
 
+	fmt.Println(inputLayer)
 }
